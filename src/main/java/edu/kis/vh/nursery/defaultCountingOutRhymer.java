@@ -5,8 +5,13 @@ package edu.kis.vh.nursery;
  */
 public class defaultCountingOutRhymer {
 
-    private final int[] NUMBERS = new int[12];
-    private int total = -1;
+    public static final int ARRAY_CAPACITY = 12;
+    public static final int TOTAL_NOT_CHANGED = -1;
+    public static final int ERROR_NUMBER = -1;
+    public static final int TOTAL_START_VALUE = -1;
+    private final int[] NUMBERS = new int[ARRAY_CAPACITY];
+
+    public int total = TOTAL_START_VALUE;
 
     /**
      * Adds a number to the counting out rhymer.
@@ -23,8 +28,8 @@ public class defaultCountingOutRhymer {
      *
      * @return {@code true} if the counting out rhymer is empty, {@code false} otherwise.
      */
-    boolean callCheck() {
-        return total == -1;
+    public boolean callCheck() {
+        return total == TOTAL_NOT_CHANGED;
     }
 
     /**
@@ -32,8 +37,8 @@ public class defaultCountingOutRhymer {
      *
      * @return {@code true} if the counting out rhymer is full, {@code false} otherwise.
      */
-    boolean isFull() {
-        return total == 11;
+    public boolean isFull() {
+        return total == ARRAY_CAPACITY - 1;
     }
 
     /**
@@ -43,7 +48,7 @@ public class defaultCountingOutRhymer {
      */
     protected int peekaboo() {
         if (callCheck())
-            return -1;
+            return ERROR_NUMBER;
         return NUMBERS[total];
     }
 
@@ -54,7 +59,7 @@ public class defaultCountingOutRhymer {
      */
     public int countOut() {
         if (callCheck())
-            return -1;
+            return ERROR_NUMBER;
         return NUMBERS[total--];
     }
 
@@ -66,5 +71,4 @@ public class defaultCountingOutRhymer {
     public int getTotal() {
         return total;
     }
-
 }
