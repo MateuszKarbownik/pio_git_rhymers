@@ -3,6 +3,16 @@ package edu.kis.vh.nursery.list;
 public class IntLinkedList {
 
     public static final int ERROR_NUMBER = -1;
+    private class Node {
+
+        public int value;
+        public Node prev, next;
+
+        public Node(int i) {
+            value = i;
+        }
+
+    }
     Node last;
     int i;
 
